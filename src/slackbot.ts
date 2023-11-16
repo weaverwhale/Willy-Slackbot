@@ -31,7 +31,7 @@ class WillySlackBot {
       console.info(
         `[${new Date().toISOString()}] SLACK_RECEIVED_DIRECT_MESSAGE ${JSON.stringify(message)}`,
       )
-      const { ts, thread_ts = '', channel, text = '' } = message as any
+      const { ts, thread_ts, channel, text } = message as any
       if (!text) {
         return
       }
@@ -42,7 +42,7 @@ class WillySlackBot {
       console.info(`[${new Date().toISOString()}] SLACK_RECEIVED_MENTION ${JSON.stringify(event)}`)
 
       const userIdTag = `<@${process.env.SLACK_BOT_USER_ID}>`
-      const { text, ts, channel, thread_ts = '' } = event
+      const { text, ts, channel, thread_ts } = event
       if (!text.includes(userIdTag)) {
         return
       }
@@ -165,6 +165,7 @@ class WillySlackBot {
     if (slackMeta.thread_ts) {
       prevAns = await this._findPreviousWillyMessage(slackMeta.channel, slackMeta.thread_ts)
     }
+
     // Leave loading reaction
     if (this.reactions.loading) {
       const reaction = await this.slackApp.client.reactions.add({

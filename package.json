@@ -4,8 +4,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
-    "start": "tsx watch src/app.ts",
-    "build": "tsx build src/app.ts"
+    "start": "tsx watch src/app.ts"
   },
   "dependencies": {
     "@redis/client": "^1.4.2",
