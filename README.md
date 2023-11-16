@@ -1,5 +1,7 @@
 # 🐳 Willy Slack Bot
 
+Inspired by [Lowkin's ChatGPT Slackbot](https://github.com/lokwkin/chatgpt-slackbot-node/tree/main)
+
 This service is docker containerized, and incorporates a queue mechanism with redis, so that it is more flexible to handle request spikes.
 
 ## 🟢 Usage
@@ -48,10 +50,4 @@ docker run willy_slackbot
 |`SLACK_REACTION_FAILED`|N|The emoji to react when failed when processing, default `x`
 |`RESPONSE_QUEUE_NAME`|N|Queue name to use for listening for answers, default `queues.answers.slackbot`
 
-## 💳 Credits
-
-Adapted from https://github.com/lokwkin/chatgpt-slackbot-node/tree/main
-
-## THIS IS A WORK IN PROGRESS
-
-:feelsgood:
+## :feelsgood: THIS IS A WORK IN PROGRESS
