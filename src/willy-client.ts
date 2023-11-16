@@ -9,13 +9,13 @@ class WillyClient {
   }
 
   /**
-   * Returns a hash string from account email
+   * Returns a hash string
    */
   private _obtainHandlerId(): string {
     const hash = crypto.createHash('sha256')
-    hash.update(this.handlerId)
-    const hashedEmail = hash.digest('hex')
-    return hashedEmail.substring(0, 10)
+    hash.update(new Date().getMilliseconds().toString())
+    const hashed = hash.digest('hex')
+    return hashed.substring(0, 10)
   }
 
   /**
@@ -110,10 +110,15 @@ class WillyClient {
         body: JSON.stringify({
           stream: false,
           shopId: 'madisonbraids.myshopify.com',
-          messageId: this.handlerId,
-          question,
+          messageId: question.parentMessageId || this.handlerId,
+          question: question.prompt,
         }),
-      }).then((res) => res.json())
+      })
+        .then((res) => res.json())
+        .catch((err) => {
+          console.error(err)
+          throw err
+        })
 
       console.info(
         `[${new Date().toISOString()}] WILLY_RESPONSE <${this.handlerId}> ${JSON.stringify(
