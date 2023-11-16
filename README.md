@@ -2,14 +2,15 @@
 
 Inspired by [Lowkin's ChatGPT Slackbot](https://github.com/lokwkin/chatgpt-slackbot-node/tree/main)
 
-This service is docker containerized, and incorporates a queue mechanism with redis, so that it is more flexible to handle request spikes.
-
 ## 🟢 Usage
 
-- The slackbot will listen to two types of event in slack workspace
-  - Directly message the bot in slack.
-  - Mention your bot in a channel with a question.
-- To ask follow up question, reply in the answer thread, otherwise it will treat it as a new question.
+This slackbot listens to three types of event in slack workspace
+
+  1. Directly message the bot in slack.
+  1. Mention your bot in a channel with a question.
+  1. Slash command in a channel with a question.
+
+To ask a follow up question, reply in the answer thread, otherwise it will treat it as a new question.
 
 ## 🏳️ Start Modes
 
@@ -20,14 +21,15 @@ This app has two modes to start:
 
 ### 💬 Slack Setup
 
-1. Register an Slack App in [portal](https://api.slack.com/apps)
-2. "Socket Mode" -> Enable Socket Mode
-3. "OAuth & Permissions" -> Grant these permissions: `app_mentions:read`, `channels:history`, `chat:write`, `im:history`, `im:write`, `reactions:write`, `groups:history`
-4. "Event Subscription" -> "Subscribe to bot events" -> Add `message.im` and `app_mention`
-5. "App Home" -> "Message Tab" -> Check "Allow users to send Slash commands and messages from the messages tab"
-6. Obtain your Bot Token from "OAuth & Permissions" > "Bot User OAuth Token"
-7. Obtain your App Token from "Basic Information" > "App Level Token"
-8. "Install App" -> Reinstall to workspace if neccessary
+1. Register a Slack App in [portal](https://api.slack.com/apps)
+1. "Socket Mode" -> Enable Socket Mode
+1. "OAuth & Permissions" -> Grant these permissions: `app_mentions:read`, `channels:history`, `chat:write`, `im:history`, `im:write`, `reactions:write`, `groups:history`
+1. "Event Subscription" -> "Subscribe to bot events" -> Add `message.im` and `app_mention`
+1. "App Home" -> "Message Tab" -> Check "Allow users to send Slash commands and messages from the messages tab"
+1. Obtain your Bot Token from "OAuth & Permissions" > "Bot User OAuth Token"
+1. Obtain your App Token from "Basic Information" > "App Level Token"
+1. Enable slash commands and specify your command name; we don't need to specify the request URL as we are using socket mode.
+1. "Install App" -> Reinstall in workspace if neccessary
 
 ### 🐋 Build and run with docker
 
