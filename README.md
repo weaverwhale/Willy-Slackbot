@@ -39,11 +39,30 @@ NOTE: You need one instance of `slackbot` and one instance of `willy` to make th
 1. Enable slash commands and specify your command name; we don't need to specify the request URL as we are using socket mode.
 1. "Install App" -> Reinstall in workspace if neccessary
 
-### 🐋 Build and run with docker
+
+## 🐋 Docker
+
+The `Dockerfile` and `docker.compose` should enable you to host this app in a Docker container.
+
+You can build and run the Docker image with the following commands:
 
 ```bash
-docker build -t willy_slackbot .
-docker run willy_slackbot
+# Build the image
+yarn docker:build
+
+# Run the image
+yarn docker:compose
+```
+
+### ☁️ GCP Cloud Run
+
+The `cloudbuild.yaml` file should enable you to host this app on GCP Cloud Run.
+
+You can build and run the Cloud Run image with the following commands:
+
+```bash
+# Build and deploy
+gcloud run deploy
 ```
 
 ### :accessibility: Environment Variables

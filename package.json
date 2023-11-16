@@ -6,7 +6,9 @@
   "scripts": {
     "start:slackbot": "START_MODE=slackbot tsx watch src/app.ts",
     "start:willy": "START_MODE=willy tsx watch src/app.ts",
-    "start": "npm run start:slackbot & npm run start:willy"
+    "start": "npm run start:slackbot & npm run start:willy",
+    "docker:build": "docker build -t node . ",
+    "docker:compose": "docker compose up --remove-orphans"
   },
   "dependencies": {
     "@redis/client": "^1.4.2",
