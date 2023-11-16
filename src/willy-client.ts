@@ -110,6 +110,7 @@ class WillyClient {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${process.env.TW_TOKEN}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           stream: false,
