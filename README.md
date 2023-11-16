@@ -1,22 +1,22 @@
-# Willy Slack Bot
+# 🐳 Willy Slack Bot
 
 This service is docker containerized, and incorporates a queue mechanism with redis, so that it is more flexible to handle request spikes.
 
-## Usage
+## 🟢 Usage
 
 - The slackbot will listen to two types of event in slack workspace
   - Directly message the bot in slack.
   - Mention your bot in a channel with a question.
 - To ask follow up question, reply in the answer thread, otherwise it will treat it as a new question.
 
-## Start Modes
+## 🏳️ Start Modes
 
 This app has two modes to start:
 
 1. `slackbot` - listens to slack event for user requests, put request to redis queue, reply to slack on answer received.
 2. `willy` - serves as queue worker that listens to queue, forward user's questions to willy, and put response back to queue on answer received.
 
-### Slack Setup
+### 💬 Slack Setup
 
 1. Register an Slack App in [portal](https://api.slack.com/apps)
 2. "Socket Mode" -> Enable Socket Mode
@@ -27,14 +27,14 @@ This app has two modes to start:
 7. Obtain your App Token from "Basic Information" > "App Level Token"
 8. "Install App" -> Reinstall to workspace if neccessary
 
-### Build and run with docker
+### 🐋 Build and run with docker
 
 ```bash
 docker build -t willy_slackbot .
 docker run willy_slackbot
 ```
 
-### Environment Variables
+### :accessibility: Environment Variables
 
 |Key|required|description|
 |--|--|--|
@@ -47,3 +47,11 @@ docker run willy_slackbot
 |`SLACK_REACTION_SUCCESS`|N|The emoji to react when the prompt is answered, default `green_check_mark`
 |`SLACK_REACTION_FAILED`|N|The emoji to react when failed when processing, default `x`
 |`RESPONSE_QUEUE_NAME`|N|Queue name to use for listening for answers, default `queues.answers.slackbot`
+
+## 💳 Credits
+
+Adapted from https://github.com/lokwkin/chatgpt-slackbot-node/tree/main
+
+## THIS IS A WORK IN PROGRESS
+
+:feelsgood:
