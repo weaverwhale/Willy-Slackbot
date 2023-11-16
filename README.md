@@ -56,7 +56,7 @@ docker run willy_slackbot
 |`SLACK_APP_TOKEN`|Y|Your Slack App token. See https://api.slack.com/|
 |`SLACK_BOT_USER_ID`|Y|The User ID of your Slack Bot. See https://api.slack.com/|
 |`SLACK_REACTION_LOADING`|N|The emoji to react when loading a question, default `thinking_face`
-|`SLACK_REACTION_SUCCESS`|N|The emoji to react when the prompt is answered, default `green_check_mark`
+|`SLACK_REACTION_SUCCESS`|N|The emoji to react when the prompt is answered, default `white_check_mark`
 |`SLACK_REACTION_FAILED`|N|The emoji to react when failed when processing, default `x`
 |`RESPONSE_QUEUE_NAME`|N|Queue name to use for listening for answers, default `queues.answers.slackbot`
 

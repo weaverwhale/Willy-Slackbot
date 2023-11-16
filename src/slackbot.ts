@@ -17,7 +17,7 @@ class WillySlackBot {
 
     this.reactions = {
       loading: args.reactions?.loading || 'thinking_face',
-      success: args.reactions?.success || 'green_check_mark',
+      success: args.reactions?.success || 'white_check_mark',
       failed: args.reactions?.failed || 'x',
     }
 
