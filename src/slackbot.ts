@@ -54,23 +54,9 @@ class WillySlackBot {
     await this.slackApp.start()
     await WillyClient.listenAnswer(this.willyResponseQueue, async (param) => {
       if (param.success) {
-        await this._replyAnswer(
-          param.answer ||
-            ({
-              response: 'No response',
-              messageId: param.handlerId || 'NO_RESPONSE',
-            } as WillyAnswer),
-          param.question,
-          param.extra,
-          param.handlerId,
-        )
+        await this._replyAnswer(param.answer as any, param.question, param.extra, param.handlerId)
       } else {
-        await this._replyError(
-          param.error || ({ message: 'error' } as Error),
-          param.question,
-          param.extra,
-          param.handlerId,
-        )
+        await this._replyError(param.error as any, param.question, param.extra, param.handlerId)
       }
     })
   }
@@ -110,7 +96,7 @@ class WillySlackBot {
     await this.slackApp.client.chat.postMessage({
       channel: slackMeta.channel,
       thread_ts: slackMeta.ts,
-      text: `${answer.response}\n\n_ref:${answer.messageId}:${handlerId}_`,
+      text: `${JSON.stringify(answer.response)}\n\n_ref:${answer.messageId}:${handlerId}_`,
     })
     if (this.reactions.success) {
       await this.slackApp.client.reactions.add({
@@ -137,7 +123,7 @@ class WillySlackBot {
     await this.slackApp.client.chat.postMessage({
       channel: slackMeta.channel,
       thread_ts: slackMeta.ts,
-      text: `Error: ${err.message} \nPlease ask again...`,
+      text: `Error: ${JSON.stringify(err.message)} \nPlease ask again...`,
     })
 
     if (this.reactions.failed) {

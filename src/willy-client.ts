@@ -1,5 +1,6 @@
 import RedisAgent from './redis-agent.js'
 import crypto from 'crypto'
+import { v4 as uuidV4 } from 'uuid'
 
 class WillyClient {
   handlerId: string
@@ -13,7 +14,7 @@ class WillyClient {
    */
   private _obtainHandlerId(): string {
     const hash = crypto.createHash('sha256')
-    hash.update(new Date().getMilliseconds().toString())
+    hash.update(uuidV4())
     const hashed = hash.digest('hex')
     return hashed.substring(0, 10)
   }
@@ -107,18 +108,16 @@ class WillyClient {
 
       const result = await fetch('https://app.triplewhale.com/api/v2/willy/answer-nlq-question', {
         method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.TW_TOKEN}`,
+        },
         body: JSON.stringify({
           stream: false,
           shopId: 'madisonbraids.myshopify.com',
-          messageId: question.parentMessageId || this.handlerId,
-          question: question.prompt,
+          messageId: (question.parentMessageId || uuidV4()).toString(),
+          question: question.prompt || 'What is triple whale?',
         }),
-      })
-        .then((res) => res.json())
-        .catch((err) => {
-          console.error(err)
-          throw err
-        })
+      }).then((res) => res.json())
 
       console.info(
         `[${new Date().toISOString()}] WILLY_RESPONSE <${this.handlerId}> ${JSON.stringify(

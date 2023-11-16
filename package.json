@@ -4,13 +4,16 @@
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
-    "start": "tsx watch src/app.ts"
+    "start:slackbot": "START_MODE=slackbot tsx watch src/app.ts",
+    "start:willy": "START_MODE=willy tsx watch src/app.ts",
+    "start": "npm run start:slackbot & npm run start:willy"
   },
   "dependencies": {
     "@redis/client": "^1.4.2",
     "@slack/bolt": "^3.12.2",
     "dotenv": "^16.0.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
