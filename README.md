@@ -61,4 +61,4 @@ docker run willy_slackbot
 |`SLACK_REACTION_FAILED`|N|The emoji to react when failed when processing, default `x`|
 |`RESPONSE_QUEUE_NAME`|N|Queue name to use for listening for answers, default `queues.answers.slackbot`|
 
-## :feelsgood: THIS IS A WORK IN PROGRESS :feelsgood:
+# :feelsgood: THIS IS A WORK IN PROGRESS :feelsgood:
