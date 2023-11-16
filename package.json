@@ -1,0 +1,21 @@
+{
+  "name": "willy-slackbot",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "ts-node src/app.ts"
+  },
+  "dependencies": {
+    "@redis/client": "^1.4.2",
+    "@slack/bolt": "^3.12.2",
+    "dotenv": "^16.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/node": "^18.15.5",
+    "prettier": "^2.8.3"
+  }
+}
