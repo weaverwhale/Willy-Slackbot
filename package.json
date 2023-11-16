@@ -5,22 +5,23 @@
   "main": "./dist/index.js",
   "scripts": {
     "start:slackbot": "START_MODE=slackbot tsx watch src/app.ts",
+    "start:slackbot:prod": "START_MODE=slackbot tsx src/app.ts",
     "start:willy": "START_MODE=willy tsx watch src/app.ts",
-    "start": "npm run start:slackbot & npm run start:willy",
+    "start:willy:prod": "START_MODE=willy tsx src/app.ts",
+    "dev": "npm run start:slackbot & npm run start:willy",
+    "start": "npm run start:slackbot:prod & npm run start:willy:prod",
     "docker:build": "docker build -t node . ",
     "docker:compose": "docker compose up --remove-orphans"
   },
   "dependencies": {
     "@redis/client": "^1.4.2",
     "@slack/bolt": "^3.12.2",
-    "dotenv": "^16.0.3",
-    "typescript": "^5.2.2",
-    "uuidv4": "^6.2.13"
-  },
-  "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
     "@types/node": "^18.15.5",
+    "dotenv": "^16.0.3",
     "prettier": "^2.8.3",
-    "tsx": "^4.1.2"
+    "tsx": "^4.1.2",
+    "typescript": "^5.2.2",
+    "uuidv4": "^6.2.13"
   }
 }

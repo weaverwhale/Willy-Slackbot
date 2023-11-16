@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "ts-node": {
     "esm": true,
     "files": true
