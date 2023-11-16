@@ -62,3 +62,5 @@ docker run willy_slackbot
 |`RESPONSE_QUEUE_NAME`|N|Queue name to use for listening for answers, default `queues.answers.slackbot`|
 
 # :feelsgood: THIS IS A WORK IN PROGRESS :feelsgood:
+
+![](screenshots/ss1.png)![](screenshots/ss2.png)![](screenshots/ss3.png)
