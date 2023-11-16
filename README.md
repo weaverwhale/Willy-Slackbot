@@ -2,6 +2,12 @@
 
 Inspired by [Lowkin's ChatGPT Slackbot](https://github.com/lokwkin/chatgpt-slackbot-node/tree/main)
 
+## 🏁 Quickstart
+
+```bash
+yarn && yarn start
+```
+
 ## 🟢 Usage
 
 This slackbot listens to three types of event in slack workspace
