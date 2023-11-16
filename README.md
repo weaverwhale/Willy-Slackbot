@@ -1,21 +1,23 @@
 # Willy Slack Bot
 
-This service is docker containerized , and has incorporates queue mechanism with redis, so that it is more flexible to handle request spikes.
+This service is docker containerized, and incorporates a queue mechanism with redis, so that it is more flexible to handle request spikes.
 
 ## Usage
+
 - The slackbot will listen to two types of event in slack workspace
   - Directly message the bot in slack.
   - Mention your bot in a channel with a question.
 - To ask follow up question, reply in the answer thread, otherwise it will treat it as a new question.
 
-
 ## Start Modes
+
 This app has two modes to start:
+
 1. `slackbot` - listens to slack event for user requests, put request to redis queue, reply to slack on answer received.
 2. `willy` - serves as queue worker that listens to queue, forward user's questions to willy, and put response back to queue on answer received.
 
-
 ### Slack Setup
+
 1. Register an Slack App in [portal](https://api.slack.com/apps)
 2. "Socket Mode" -> Enable Socket Mode
 3. "OAuth & Permissions" -> Grant these permissions: `app_mentions:read`, `channels:history`, `chat:write`, `im:history`, `im:write`, `reactions:write`, `groups:history`
@@ -26,13 +28,14 @@ This app has two modes to start:
 8. "Install App" -> Reinstall to workspace if neccessary
 
 ### Build and run with docker
-```
+
+```bash
 docker build -t willy_slackbot .
 docker run willy_slackbot
 ```
 
 ### Environment Variables
-<!--  -->
+
 |Key|required|description|
 |--|--|--|
 |`START_MODE`|Y|`slackbot`||`willy`|
