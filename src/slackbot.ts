@@ -87,6 +87,19 @@ class WillySlackBot {
     return null
   }
 
+  private _formatAnswer(answer: WillyAnswer, question: WillyQuestion, handlerId: string) {
+    const text = `${answer.text}\n\n`
+    const jayson = `\n\n\`\`\`${JSON.stringify(answer.response)}\`\`\`\n\n`
+    const questions =
+      answer.response?.linksToHelpCenter
+        ?.map((link: any, index: number) => `\n${index + 1}. <${link.link}|${link.title}>\n`)
+        .join('') ?? ''
+    const data = answer.response?.data?.map((d: any) => `\n${d.name}: ${d.value}`).join('') ?? ''
+    const ref = `_ref:${answer.messageId || ''}:${handlerId}_`
+
+    return text + data + questions + ref
+  }
+
   async _replyAnswer(
     answer: WillyAnswer,
     question: WillyQuestion,
@@ -96,9 +109,7 @@ class WillySlackBot {
     await this.slackApp.client.chat.postMessage({
       channel: slackMeta.channel,
       thread_ts: slackMeta.ts,
-      text: `${JSON.stringify(answer.text)}\n\n_ref:${
-        answer.messageId || ''
-      }:${handlerId}_\n\n\`\`\`${JSON.stringify(answer.response)}\`\`\``,
+      text: this._formatAnswer(answer, question, handlerId),
     })
     if (this.reactions.success) {
       await this.slackApp.client.reactions.add({

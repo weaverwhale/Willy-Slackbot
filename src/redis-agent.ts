@@ -12,7 +12,7 @@ class RedisAgent {
 
     // set up error handling for the client
     this.client.on('error', (err: Error) => {
-      console.error(`Error: ${err}`)
+      console.error(`Redis Error: ${err}`)
     })
   }
 
