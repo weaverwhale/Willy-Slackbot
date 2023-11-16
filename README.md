@@ -13,8 +13,8 @@ yarn && yarn start
 This slackbot listens to three types of event in slack workspace
 
   1. Directly message the bot in slack.
-  1. Mention your bot in a channel with a question.
-  1. Slash command in a channel with a question.
+  1. ~~Mention your bot in a channel with a question.~~ @TODO
+  1. ~~Slash command in a channel with a question.~~ @TODO
 
 To ask a follow up question, reply in the answer thread, otherwise it will treat it as a new question.
 
