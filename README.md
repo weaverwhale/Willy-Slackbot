@@ -50,7 +50,7 @@ docker run willy_slackbot
 
 |Key|required|description|
 |--|--|--|
-|`START_MODE`|Y|`slackbot`||`willy`|
+|`START_MODE`|Y|`slackbot` or `willy`|
 |`REDIS_URL`|Y|Redis connection url, e.g.: `redis://127.0.0.1.6379`|
 |`SLACK_BOT_TOKEN`|Y|Your Slack Bot token. See https://api.slack.com/|
 |`SLACK_APP_TOKEN`|Y|Your Slack App token. See https://api.slack.com/|
