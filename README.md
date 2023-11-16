@@ -25,6 +25,8 @@ This app has two modes to start:
 1. `slackbot` - listens to slack event for user requests, put request to redis queue, reply to slack on answer received.
 2. `willy` - serves as queue worker that listens to queue, forward user's questions to willy, and put response back to queue on answer received.
 
+NOTE: You need one instance of `slackbot` and one instance of `willy` to make this work.
+
 ### 💬 Slack Setup
 
 1. Register a Slack App in [portal](https://api.slack.com/apps)
