@@ -127,8 +127,10 @@ class WillyClient {
       )
 
       return {
-        response: result.text,
-        messageId: result.id,
+        response: result,
+        text: result.text,
+        messageId:
+          result.messageId || result.conversationId || uuidV4().toString().substring(0, 10),
       }
     } catch (err) {
       console.info(

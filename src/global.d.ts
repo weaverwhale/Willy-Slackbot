@@ -39,7 +39,8 @@ declare interface WillyQuestion {
 }
 
 declare interface WillyAnswer {
-  response: string
+  response: any
+  text: string
   messageId: string
 }
 

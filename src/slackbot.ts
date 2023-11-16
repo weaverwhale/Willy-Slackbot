@@ -96,7 +96,9 @@ class WillySlackBot {
     await this.slackApp.client.chat.postMessage({
       channel: slackMeta.channel,
       thread_ts: slackMeta.ts,
-      text: `${JSON.stringify(answer.response)}\n\n_ref:${answer.messageId}:${handlerId}_`,
+      text: `${JSON.stringify(answer.text)}\n\n_ref:${
+        answer.messageId || ''
+      }:${handlerId}_\n\n\`\`\`${JSON.stringify(answer.response)}\`\`\``,
     })
     if (this.reactions.success) {
       await this.slackApp.client.reactions.add({
