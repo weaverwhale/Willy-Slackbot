@@ -18,15 +18,6 @@ This slackbot listens to three types of event in slack workspace
 
 To ask a follow up question, reply in the answer thread, otherwise it will treat it as a new question.
 
-## 🏳️ Start Modes
-
-This app has two modes to start:
-
-1. `slackbot` - listens to slack event for user requests, put request to redis queue, reply to slack on answer received.
-2. `willy` - serves as queue worker that listens to queue, forward user's questions to willy, and put response back to queue on answer received.
-
-NOTE: You need one instance of `slackbot` and one instance of `willy` to make this work.
-
 ### 💬 Slack Setup
 
 1. Register a Slack App in [portal](https://api.slack.com/apps)
@@ -71,11 +62,9 @@ NOTE: You must roll your own Redis service. The service's URL will be used as th
 
 |Key|required|description|
 |--|--|--|
-|`START_MODE`|Y|`slackbot` or `willy`|
 |`REDIS_URL`|Y|Redis connection url, e.g.: `redis://redis:6379`|
 |`SHOP_URL`|Y|Your shop URL, e.g.: `asdf.myshopify.com` |
 |`SLACK_BOT_TOKEN`|Y|Your Slack Bot token. See https://api.slack.com/|
-|`SLACK_APP_TOKEN`|Y|Your Slack App token. See https://api.slack.com/|
 |`SLACK_BOT_USER_ID`|Y|The User ID of your Slack Bot. See https://api.slack.com/|
 |`TW_TOKEN`|Y|The API token from triple whale|
 |`SLACK_REACTION_LOADING`|N|The emoji to react when loading a question, default `thinking_face`|

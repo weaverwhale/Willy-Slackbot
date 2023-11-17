@@ -2,14 +2,9 @@
   "name": "willy-slackbot",
   "description": "",
   "type": "module",
-  "main": "./dist/index.js",
   "scripts": {
-    "start:slackbot": "START_MODE=slackbot tsx watch src/app.ts",
-    "start:slackbot:prod": "START_MODE=slackbot tsx src/app.ts",
-    "start:willy": "START_MODE=willy tsx watch src/app.ts",
-    "start:willy:prod": "START_MODE=willy tsx src/app.ts",
-    "dev": "npm run start:slackbot & npm run start:willy",
-    "start": "npm run start:slackbot:prod & npm run start:willy:prod",
+    "dev": "tsx watch src/app.ts",
+    "start": "tsx src/app.ts",
     "docker:build": "docker build -t willy-slackbot . ",
     "docker:compose": "docker compose up --remove-orphans"
   },
