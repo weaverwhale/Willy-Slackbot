@@ -7,6 +7,8 @@ services:
       - '6379:6379'
     expose:
       - '6379'
+    networks:
+      shared-network:
   web:
     build: .
     ports:
@@ -18,3 +20,8 @@ services:
       - REDIS_URL=redis://redis:6379
     volumes:
       - .:/code
+    networks:
+      shared-network:
+
+networks:
+  shared-network:
