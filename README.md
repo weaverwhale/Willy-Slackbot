@@ -50,7 +50,7 @@ You can build and run the Docker image with the following commands:
 # Build the image
 yarn docker:build
 
-# Run the image
+# Run the image with redis locally
 yarn docker:compose
 ```
 
@@ -65,12 +65,14 @@ You can build and run the Cloud Run image with the following commands:
 gcloud run deploy
 ```
 
+NOTE: You must enable MemoryStore Redis API and create a Redis instance in the same project. The IP will be used as the `REDIS_URL` environment variable in the Cloud Run instance.
+
 ### :accessibility: Environment Variables
 
 |Key|required|description|
 |--|--|--|
 |`START_MODE`|Y|`slackbot` or `willy`|
-|`REDIS_URL`|Y|Redis connection url, e.g.: `redis://127.0.0.1.6379`|
+|`REDIS_URL`|Y|Redis connection url, e.g.: `redis://redis:6379`|
 |`SLACK_BOT_TOKEN`|Y|Your Slack Bot token. See https://api.slack.com/|
 |`SLACK_APP_TOKEN`|Y|Your Slack App token. See https://api.slack.com/|
 |`SLACK_BOT_USER_ID`|Y|The User ID of your Slack Bot. See https://api.slack.com/|
