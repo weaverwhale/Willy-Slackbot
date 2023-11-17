@@ -13,6 +13,7 @@ async function main() {
   }
 
   RedisAgent.initialize({
+    // redisUrl: process.env.REDIS_URL || 'redis://default:d3svkL8vr7bk1bCWMnBt0qhvntiGNHFB@redis-16791.c302.asia-northeast1-1.gce.cloud.redislabs.com:16791/0',
     redisUrl: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
   })
 
