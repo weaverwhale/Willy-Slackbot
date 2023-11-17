@@ -7,7 +7,9 @@ class RedisAgent {
   constructor(args: RedisAgentArg) {
     // create a client for connecting to Redis
     this.client = redis.createClient({
-      url: args.redisUrl,
+      url:
+        args.redisUrl ??
+        'redis://default:d3svkL8vr7bk1bCWMnBt0qhvntiGNHFB@redis-16791.c302.asia-northeast1-1.gce.cloud.redislabs.com:16791/0',
     })
 
     // set up error handling for the client
