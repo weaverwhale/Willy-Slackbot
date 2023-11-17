@@ -1,3 +1,4 @@
+import express from 'express'
 import WillyClient from './willy-client.js'
 import WillySlackBot from './slackbot.js'
 import RedisAgent from './redis-agent.js'
@@ -33,6 +34,13 @@ async function main() {
 
     await slackBot.listen()
   } else if (process.env.START_MODE === 'willy') {
+    const app = express()
+    const port = process.env.PORT || 8080
+    app.use(express.json())
+    app.listen(port, () => {
+      console.info(`[${new Date().toISOString()}] EXPRESS_APP istening on port ${port}`)
+    })
+
     const willyClient = new WillyClient()
     await willyClient.listenQuestion()
   }
