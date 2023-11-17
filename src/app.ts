@@ -25,7 +25,7 @@ async function main() {
     },
     willyResponseQueue: process.env.RESPONSE_QUEUE_NAME || '',
   } as SlackBotArgs)
-  await slackBot.listen()
+  slackBot.listen()
 
   const app = express()
   const port = process.env.PORT || 8080
@@ -35,7 +35,7 @@ async function main() {
   })
 
   const willyClient = new WillyClient()
-  await willyClient.listenQuestion()
+  willyClient.listenQuestion()
 }
 
 main().catch((err: Error) => {
