@@ -2,19 +2,17 @@ services:
   redis:
     image: redis:latest
     restart: always
-    command: --port 6380
     ports:
-      - '6380:6380'
+      - '6379:6379'
     expose:
-      - '6380'
+      - '6379'
   web:
     build: .
     ports:
-      - '3000:3000'
+      - '8080:8080'
     environment:
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
       - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
       - TW_TOKEN=${TW_TOKEN}
-      - REDIS_URL=redis://redis:6380
     volumes:
       - .:/code
