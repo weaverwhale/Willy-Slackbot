@@ -65,7 +65,7 @@ You can build and run the Cloud Run image with the following commands:
 gcloud run deploy
 ```
 
-NOTE: You must enable MemoryStore Redis API and create a Redis instance in the same project. The IP will be used as the `REDIS_URL` environment variable in the Cloud Run instance.
+NOTE: You must roll your own Redis service. The service's URL will be used as the `REDIS_URL` environment variable in the Cloud Run instance.
 
 ### :accessibility: Environment Variables
 
