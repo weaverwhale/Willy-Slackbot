@@ -10,7 +10,7 @@ services:
   web:
     build: .
     ports:
-      - '80:80'
+      - '3000:3000'
     environment:
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
       - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
