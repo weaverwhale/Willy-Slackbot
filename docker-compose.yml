@@ -13,6 +13,7 @@ services:
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
       - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
       - TW_TOKEN=${TW_TOKEN}
+      - SHOP_URL=${SHOP_URL}
       - REDIS_URL=redis://redis:6379
     volumes:
       - .:/code

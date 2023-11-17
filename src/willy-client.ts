@@ -109,12 +109,12 @@ class WillyClient {
       const result = await fetch('https://app.triplewhale.com/api/v2/willy/answer-nlq-question', {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${process.env.TW_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
+          'content-type': 'application/json',
+          'x-api-key': process.env.TW_TOKEN,
+        } as any,
         body: JSON.stringify({
           stream: false,
-          shopId: 'madisonbraids.myshopify.com',
+          shopId: process.env.SHOP_URL ?? 'madisonbraids.myshopify.com',
           messageId: (question.parentMessageId || uuidV4()).toString(),
           question: question.prompt || 'What is triple whale?',
         }),
