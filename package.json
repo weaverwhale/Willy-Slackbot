@@ -10,7 +10,7 @@
     "start:willy:prod": "START_MODE=willy tsx src/app.ts",
     "dev": "npm run start:slackbot & npm run start:willy",
     "start": "npm run start:slackbot:prod & npm run start:willy:prod",
-    "docker:build": "docker build -t node . ",
+    "docker:build": "docker build -t willy-slackbot . ",
     "docker:compose": "docker compose up --remove-orphans"
   },
   "dependencies": {

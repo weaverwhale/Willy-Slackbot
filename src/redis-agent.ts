@@ -46,6 +46,7 @@ class RedisAgent {
   static async initialize(args: RedisAgentArg): Promise<void> {
     RedisAgent._instance = new RedisAgent(args)
     await RedisAgent._instance.connect()
+    console.log('RedisAgent initialized at ' + args.redisUrl)
   }
 
   static getInstance(): RedisAgent {
